@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/templates :: head">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Facturación</h1>
+        <h3 class="text-primary">Productos</h3>
+        <button type="button" class="btn btn-primary">Crear</button>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre del Producto</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="producto:${productos}">
+                    <th scope="row" th:text="${producto.idProducto}"></th>
+                    <td th:text="${producto.codigo}"></td>
+                    <td th:text="${producto.nombre}"></td>
+                    <td><img th:src="${producto.imagen}" width="80px"></td>
+                    <td th:text="${producto.stock}"></td>
+                    <td th:text="${producto.estado}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <th:block th:replace="fragments/templates :: scripts"></th:block>
+</body>
+
+</html>

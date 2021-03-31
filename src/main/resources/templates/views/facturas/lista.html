@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/templates :: head">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Facturación</h1>
+        <h3 class="text-primary">Facturas</h3>
+        <button type="button" class="btn btn-primary">Crear</button>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Vendedor</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">SubTotal</th>
+                    <th scope="col">Impuesto</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="factura:${facturas}">
+                    <th scope="row" th:text="${factura.idFactura}"></th>
+                    <td th:text="${factura.creacion}"></td>
+                    <td th:text="${factura.usuario.nombres}"></td>
+                    <td th:text="${factura.cliente.nombres}"></td>
+                    <td th:text="${factura.subtotal}"></td>
+                    <td th:text="${factura.impuesto}"></td>
+                    <td th:text="${factura.total}"></td>
+                    <td th:text="${factura.estado}"></td>
+                    <td>
+                    	<a class="btn btn-info" th:href="@{/facturas/{id} (id=${factura.idFactura})}" >Ver</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <th:block th:replace="fragments/templates :: scripts"></th:block>
+</body>
+
+</html>

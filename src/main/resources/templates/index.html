@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/templates :: head">
+
+</head>
+
+<body>
+    <div>
+        <h1>Facturación</h1>
+        <a th:href="@{/productos}">Productos</a>
+        <br>
+        <a th:href="@{/facturas}">Facturas</a>
+    </div>
+    <th:block th:replace="fragments/templates :: scripts"></th:block>
+</body>
+
+</html>
